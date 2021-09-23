@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/<!-- DB Name --></property>
+        <property name="hibernate.connection.username"><!-- User Name --></property>
+        <property name="hibernate.connection.password"><!-- Pass --></property>
+        
+        <!-- CAMBIA EL DIALECTO DE LA BDD -->
+  		<!-- https://stackoverflow.com/questions/50777476/hibernate-has-difficult-with-create-table-using-mysql/50777794 -->
+  		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+  		
+  		<!-- DEFINO EL NIVEL DE PERMISO DE HIBERNATE CON LAS TABLAS-->
+  		<property name="hibernate.hbm2ddl.auto">update</property>
+  		
+  		<!-- MUESTRA LAS SENTENCIAS SQL GENERADAS-->
+  		<property name="show_sql">true</property>
+  		
+  		<!-- CONFIGURACIÓN POOL CONEXIONES -->
+  		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.acquire_increment">2</property>
+		<property name="hibernate.c3p0.acquire_increment">1800</property>
+		<property name="hibernate.c3p0.max_statements">150</property>
+		
+  		<!-- CLASES A MAPEAR -->
+  		<mapping class="dev.spring.webcrud.entity.Cliente"/>
+  		
+    </session-factory>
+</hibernate-configuration>
